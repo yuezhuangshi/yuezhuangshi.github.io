@@ -13,4 +13,4 @@ Allow: /images/
 Allow: /js/
 Allow: /lib/
 
-Sitemap: yuezhuangshi.com/sitemap.xml
+Sitemap: yuezhuangshi.cn/sitemap.xml
