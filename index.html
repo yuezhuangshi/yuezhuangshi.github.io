@@ -82,13 +82,13 @@
 
 <meta name="description" content="坚信技术使生活更美好">
 <meta property="og:type" content="website">
-<meta property="og:title" content="岳同书">
+<meta property="og:title" content="知否">
 <meta property="og:url" content="http://yuezhuangshi.cn/index.html">
-<meta property="og:site_name" content="岳同书">
+<meta property="og:site_name" content="知否">
 <meta property="og:description" content="坚信技术使生活更美好">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="岳同书">
+<meta name="twitter:title" content="知否">
 <meta name="twitter:description" content="坚信技术使生活更美好">
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title>岳同书</title>
+  <title>知否</title>
   
 
 
@@ -165,7 +165,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">岳同书</span>
+        <span class="site-title">知否</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -282,6 +282,223 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yuezhuangshi.cn/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="岳同书">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/duck.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知否">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/" itemprop="url">禁用 GitLab Merge Request 页面上的 Resolve Conflicts 按钮</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-02T15:25:38+08:00">
+                2021-08-02
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-08-02T18:09:12+08:00">
+                2021-08-02
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DevOps/" itemprop="url" rel="index">
+                    <span itemprop="name">DevOps</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  712 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>通过本篇文章，你将能够禁用 GitLab（v11.3.0） Merge Request 页面上的 Resolve Conflicts 按钮。</p>
+<h2 id="整体思路">整体思路</h2>
+<p><img src="/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/GitLabMergeRequestConflictsPage.png" alt="MR 冲突页面">
+先观察 GitLab Merge Request 的页面中 <code>Resolve conflicts</code> 的左右元素，左侧有文本，右侧有按钮。<br>
+查看 GitLab CE <a href="https://gitlab.com/rluna-gitlab/gitlab-ce/-/tree/v11.3.0" target="_blank" rel="noopener">v11.3.0</a> 版本的源码发现，出现 <code>Resolve conflicts</code> 字样且符合元素排布展示的为页面 <code>app/assets/javascripts/vue_merge_request_widget/components/states/mr_widget_conflicts.vue</code>，如图所示：
+<img src="/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/GitLabMergeRequestPageSource.png" alt="GitLab Merge Request"></p>
+<blockquote>
+<p>GitLab 中主要有两种前端页面，一种是 haml 的模版页面，一种是 vue 的页面。<br>
+haml 的模版页面对于源文件的修改会直接作用到页面上，而 vue 的页面都是通过 webpack 打包为静态文件来使用的，所以对于源文件的修改没有任何意义。</p>
+</blockquote>
+<p>我们想要禁用掉这个按钮，除了修改源文件，通过 css 的覆盖则是另一种有效的方法，按钮上的 css class <code>js-resolve-conflicts-button</code> 是一个比较好的切入点。</p>
+<h2 id="解决方案">解决方案</h2>
+<h3 id="启动一个测试用的-gitlab">启动一个测试用的 GitLab</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">    --rm \</span><br><span class="line">    --name='gitlab-ce' -d \</span><br><span class="line">    --restart always \</span><br><span class="line">    -p 10022:22 \</span><br><span class="line">    -p 80:80 \</span><br><span class="line">    gitlab/gitlab-ce:11.3.0-ce.0</span><br></pre></td></tr></table></figure>
+<p>准备一个存在合并冲突的 Merge Request 备用，后续验证效果。</p>
+<h3 id="覆盖-css-隐藏-resolve-conflicts-按钮">覆盖 CSS，隐藏 Resolve Conflicts 按钮</h3>
+<p>执行命令 <code>docker exec -it gitlab-ce bash</code>，进入到容器中，找到如下 css 文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/gitlab/embedded/service/gitlab-rails/public/assets/application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css</span><br></pre></td></tr></table></figure>
+<p>在文件末尾追加需覆盖的 CSS</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.js-resolve-conflicts-button</span>&#123;<span class="attribute">display</span>:none&#125;</span><br></pre></td></tr></table></figure>
+<p>在 <code>/opt/gitlab/embedded/service/gitlab-rails/public/assets/</code> 路径下，执行如下命令生成新的压缩 css</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -c application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css &gt; application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css.gz</span><br></pre></td></tr></table></figure>
+<p>直接刷新 Merge Request 页面后，会发现其实没有变化，原因是客户端本地已经缓存了修改前的静态文件，就不会再找服务端取新的文件了。
+这时候客户端可以 Disable Cache，再刷新页面就可以看到期望结果了。但弊端也很明显，线上不可能要求所有人都这样配合来做。</p>
+<h3 id="强制刷新客户端缓存-使修改生效">强制刷新客户端缓存，使修改生效</h3>
+<p>要解决缓存的问题，只需要给这个 css 文件加一个版本即可，客户端就会取新的文件了。
+从源码中发现，静态文件的引入和 <code>.sprockets-manifest-a0472862966d175769c64db6472b5b23.json</code> 这个文件有关，作如下修改即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"application.css":"application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css"</span><br><span class="line"><span class="meta">#</span> 将上述内容修改为如下所示</span><br><span class="line">"application.css":"application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css?v=1234"</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/GitLabMergeRequestAfterModify.png" alt="修改生效后的 Merge Request 页面"></p>
+<h3 id="持久化修改">持久化修改</h3>
+<p>保存如上文件至本地，挂载到 GitLab 的容器中使用，对应的挂载路径如下所示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.sprockets-manifest-a0472862966d175769c64db6472b5b23.json -&gt; /opt/gitlab/embedded/service/gitlab-rails/public/assets/.sprockets-manifest-a0472862966d175769c64db6472b5b23.json</span><br><span class="line">application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css -&gt; /opt/gitlab/embedded/service/gitlab-rails/public/assets/application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css</span><br><span class="line">application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css.gz -&gt; /opt/gitlab/embedded/service/gitlab-rails/public/assets/application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css.gz</span><br></pre></td></tr></table></figure>
+<p>如果遇到权限问题，执行下 <code>docker exec -it gitlab-ce update-permissions</code> 就可以了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yuezhuangshi.cn/2019/06/17/summarized-how-to-replace-mirrors/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -291,7 +508,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="岳同书">
+      <meta itemprop="name" content="知否">
     </span>
 
     
@@ -329,8 +546,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-17T23:36:43+08:00">
-                2019-06-17
+              <time title="更新于" itemprop="dateModified" datetime="2021-08-02T18:13:01+08:00">
+                2021-08-02
               </time>
             
           </span>
@@ -516,7 +733,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="岳同书">
+      <meta itemprop="name" content="知否">
     </span>
 
     
@@ -554,8 +771,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-17T23:39:33+08:00">
-                2019-06-17
+              <time title="更新于" itemprop="dateModified" datetime="2021-08-02T18:14:17+08:00">
+                2021-08-02
               </time>
             
           </span>
@@ -573,8 +790,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务</span>
+                  <a href="/categories/MicroService/" itemprop="url" rel="index">
+                    <span itemprop="name">MicroService</span>
                   </a>
                 </span>
 
@@ -754,7 +971,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="岳同书">
+      <meta itemprop="name" content="知否">
     </span>
 
     
@@ -936,7 +1153,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="岳同书">
+      <meta itemprop="name" content="知否">
     </span>
 
     
@@ -974,8 +1191,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-18T00:17:34+08:00">
-                2019-06-18
+              <time title="更新于" itemprop="dateModified" datetime="2021-08-02T14:47:52+08:00">
+                2021-08-02
               </time>
             
           </span>
@@ -1145,7 +1362,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1156,7 +1373,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1167,7 +1384,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1226,7 +1443,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1240,7 +1457,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.1k</span>
+    <span title="Site words total count">4.8k</span>
   
 </div>
 

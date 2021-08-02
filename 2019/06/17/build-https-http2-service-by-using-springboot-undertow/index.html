@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="https,springboot,undertow,http2,">
+  <meta name="keywords" content="springboot,undertow,http2,https,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 <meta name="description" content="通过本篇文章，你将能够基于 SpringBoot + Undertow 构建一个支持 https + http2 的服务。 创建工程 此处使用的是 Gradle，Maven用户只需要将关键项做语法迁移即可。 使用 https://start.spring.io/ 来初始化工程，需要使用 lombok 和 Spring Web Starter两个依赖。  将生成好的工程导入 IDEA 中，修改 bu">
-<meta name="keywords" content="https,springboot,undertow,http2">
+<meta name="keywords" content="springboot,undertow,http2,https">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用SpringBoot + Undertow 构建一个支持 https + http2 的服务">
 <meta property="og:url" content="http://yuezhuangshi.cn/2019/06/17/build-https-http2-service-by-using-springboot-undertow/index.html">
-<meta property="og:site_name" content="岳同书">
+<meta property="og:site_name" content="知否">
 <meta property="og:description" content="通过本篇文章，你将能够基于 SpringBoot + Undertow 构建一个支持 https + http2 的服务。 创建工程 此处使用的是 Gradle，Maven用户只需要将关键项做语法迁移即可。 使用 https://start.spring.io/ 来初始化工程，需要使用 lombok 和 Spring Web Starter两个依赖。  将生成好的工程导入 IDEA 中，修改 bu">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yuezhuangshi.cn/2019/06/17/build-https-http2-service-by-using-springboot-undertow/SpringInitializr.png">
 <meta property="og:image" content="http://yuezhuangshi.cn/2019/06/17/build-https-http2-service-by-using-springboot-undertow/ProjectStructure.png">
 <meta property="og:image" content="http://yuezhuangshi.cn/2019/06/17/build-https-http2-service-by-using-springboot-undertow/Chrome.png">
 <meta property="og:image" content="http://yuezhuangshi.cn/2019/06/17/build-https-http2-service-by-using-springboot-undertow/Firefox.png">
-<meta property="og:updated_time" content="2019-06-17T15:39:33.461Z">
+<meta property="og:updated_time" content="2021-08-02T10:14:17.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用SpringBoot + Undertow 构建一个支持 https + http2 的服务">
 <meta name="twitter:description" content="通过本篇文章，你将能够基于 SpringBoot + Undertow 构建一个支持 https + http2 的服务。 创建工程 此处使用的是 Gradle，Maven用户只需要将关键项做语法迁移即可。 使用 https://start.spring.io/ 来初始化工程，需要使用 lombok 和 Spring Web Starter两个依赖。  将生成好的工程导入 IDEA 中，修改 bu">
@@ -132,7 +132,7 @@
 
 
 
-  <title>使用SpringBoot + Undertow 构建一个支持 https + http2 的服务 | 岳同书</title>
+  <title>使用SpringBoot + Undertow 构建一个支持 https + http2 的服务 | 知否</title>
   
 
 
@@ -171,7 +171,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">岳同书</span>
+        <span class="site-title">知否</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -297,7 +297,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="岳同书">
+      <meta itemprop="name" content="知否">
     </span>
 
     
@@ -333,8 +333,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-17T23:39:33+08:00">
-                2019-06-17
+              <time title="更新于" itemprop="dateModified" datetime="2021-08-02T18:14:17+08:00">
+                2021-08-02
               </time>
             
           </span>
@@ -352,8 +352,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/微服务/" itemprop="url" rel="index">
-                    <span itemprop="name">微服务</span>
+                  <a href="/categories/MicroService/" itemprop="url" rel="index">
+                    <span itemprop="name">MicroService</span>
                   </a>
                 </span>
 
@@ -519,13 +519,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/https/" rel="tag"># https</a>
-          
             <a href="/tags/springboot/" rel="tag"># springboot</a>
           
             <a href="/tags/undertow/" rel="tag"># undertow</a>
           
             <a href="/tags/http2/" rel="tag"># http2</a>
+          
+            <a href="/tags/https/" rel="tag"># https</a>
           
         </div>
       
@@ -651,7 +651,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -662,7 +662,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -673,7 +673,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -748,7 +748,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -762,7 +762,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.1k</span>
+    <span title="Site words total count">4.8k</span>
   
 </div>
 

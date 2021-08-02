@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="https,mkcert,">
+  <meta name="keywords" content="gitlab,">
 
 
 
@@ -80,18 +80,22 @@
 
 
 
-<meta name="description" content="使用 mkcert 不需要任何配置就可以生成本地可信的开发证书。 它隐藏了生成有效的TLS证书所需的所有知识，适用于任何主机名、IP，包括 localhost，但需要注意的是，只可以在本地使用。 通过本篇文章，你将能够通过 mkcert 生成本地可信的开发证书。 安装 mkcert 安装的方法和说明都在 Github 中写的比较清楚，用户可自行对照操作系统版本使用相应的命令来安装 mkcert。">
-<meta name="keywords" content="https,mkcert">
+<meta name="description" content="通过本篇文章，你将能够禁用 GitLab（v11.3.0） Merge Request 页面上的 Resolve Conflicts 按钮。 整体思路  先观察 GitLab Merge Request 的页面中 Resolve conflicts 的左右元素，左侧有文本，右侧有按钮。 查看 GitLab CE v11.3.0 版本的源码发现，出现 Resolve conflicts 字样且符合元">
+<meta name="keywords" content="gitlab">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用 mkcert 生成本地 localhost 的 https证书">
-<meta property="og:url" content="http://yuezhuangshi.cn/2019/06/17/generate-localhost-cert-by-using-mkcert/index.html">
+<meta property="og:title" content="禁用 GitLab Merge Request 页面上的 Resolve Conflicts 按钮">
+<meta property="og:url" content="http://yuezhuangshi.cn/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/index.html">
 <meta property="og:site_name" content="知否">
-<meta property="og:description" content="使用 mkcert 不需要任何配置就可以生成本地可信的开发证书。 它隐藏了生成有效的TLS证书所需的所有知识，适用于任何主机名、IP，包括 localhost，但需要注意的是，只可以在本地使用。 通过本篇文章，你将能够通过 mkcert 生成本地可信的开发证书。 安装 mkcert 安装的方法和说明都在 Github 中写的比较清楚，用户可自行对照操作系统版本使用相应的命令来安装 mkcert。">
+<meta property="og:description" content="通过本篇文章，你将能够禁用 GitLab（v11.3.0） Merge Request 页面上的 Resolve Conflicts 按钮。 整体思路  先观察 GitLab Merge Request 的页面中 Resolve conflicts 的左右元素，左侧有文本，右侧有按钮。 查看 GitLab CE v11.3.0 版本的源码发现，出现 Resolve conflicts 字样且符合元">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-17T15:38:48.000Z">
+<meta property="og:image" content="http://yuezhuangshi.cn/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/GitLabMergeRequestConflictsPage.png">
+<meta property="og:image" content="http://yuezhuangshi.cn/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/GitLabMergeRequestPageSource.png">
+<meta property="og:image" content="http://yuezhuangshi.cn/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/GitLabMergeRequestAfterModify.png">
+<meta property="og:updated_time" content="2021-08-02T10:09:12.586Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 mkcert 生成本地 localhost 的 https证书">
-<meta name="twitter:description" content="使用 mkcert 不需要任何配置就可以生成本地可信的开发证书。 它隐藏了生成有效的TLS证书所需的所有知识，适用于任何主机名、IP，包括 localhost，但需要注意的是，只可以在本地使用。 通过本篇文章，你将能够通过 mkcert 生成本地可信的开发证书。 安装 mkcert 安装的方法和说明都在 Github 中写的比较清楚，用户可自行对照操作系统版本使用相应的命令来安装 mkcert。">
+<meta name="twitter:title" content="禁用 GitLab Merge Request 页面上的 Resolve Conflicts 按钮">
+<meta name="twitter:description" content="通过本篇文章，你将能够禁用 GitLab（v11.3.0） Merge Request 页面上的 Resolve Conflicts 按钮。 整体思路  先观察 GitLab Merge Request 的页面中 Resolve conflicts 的左右元素，左侧有文本，右侧有按钮。 查看 GitLab CE v11.3.0 版本的源码发现，出现 Resolve conflicts 字样且符合元">
+<meta name="twitter:image" content="http://yuezhuangshi.cn/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/GitLabMergeRequestConflictsPage.png">
 
 
 
@@ -121,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yuezhuangshi.cn/2019/06/17/generate-localhost-cert-by-using-mkcert/">
+  <link rel="canonical" href="http://yuezhuangshi.cn/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/">
 
 
 
 
 
-  <title>使用 mkcert 生成本地 localhost 的 https证书 | 知否</title>
+  <title>禁用 GitLab Merge Request 页面上的 Resolve Conflicts 按钮 | 知否</title>
   
 
 
@@ -283,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yuezhuangshi.cn/2019/06/17/generate-localhost-cert-by-using-mkcert/">
+    <link itemprop="mainEntityOfPage" href="http://yuezhuangshi.cn/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="岳同书">
@@ -300,7 +304,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">使用 mkcert 生成本地 localhost 的 https证书</h2>
+          <h2 class="post-title" itemprop="name headline">禁用 GitLab Merge Request 页面上的 Resolve Conflicts 按钮</h2>
         
 
         <div class="post-meta">
@@ -312,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-17T14:24:05+08:00">
-                2019-06-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-02T15:25:38+08:00">
+                2021-08-02
               </time>
             
 
@@ -328,12 +332,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-17T23:38:48+08:00">
-                2019-06-17
+              <time title="更新于" itemprop="dateModified" datetime="2021-08-02T18:09:12+08:00">
+                2021-08-02
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DevOps/" itemprop="url" rel="index">
+                    <span itemprop="name">DevOps</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -343,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/06/17/generate-localhost-cert-by-using-mkcert/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/06/17/generate-localhost-cert-by-using-mkcert/" itemprop="commentsCount"></span>
+                <a href="/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -366,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  557 字
+                  712 字
                 </span>
               
 
@@ -403,26 +429,39 @@
       
 
       
-        <p>使用 mkcert 不需要任何配置就可以生成本地可信的开发证书。<br>
-它隐藏了生成有效的TLS证书所需的所有知识，适用于任何主机名、IP，包括 localhost，但需要注意的是，<strong>只可以在本地使用</strong>。</p>
-<p>通过本篇文章，你将能够通过 mkcert 生成本地可信的开发证书。</p>
-<h2 id="安装-mkcert">安装 mkcert</h2>
-<p>安装的方法和说明都在 Github 中写的比较清楚，用户可自行对照操作系统版本使用相应的命令来安装 mkcert。
-<a href="https://github.com/FiloSottile/mkcert#installation" target="_blank" rel="noopener">Github mkcert installation</a></p>
-<p>我使用的 Mac OS，因此选用 Homebrew 的方法来进行安装，官方源会比较慢，建议换为中科大镜像源，具体方法请参照 </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install mkcert</span><br><span class="line">brew install nss # if you use Firefox</span><br></pre></td></tr></table></figure>
-<p>下载完成后，需要进行一个安装操作：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 第一次执行需要输入用户密码，获取权限</span><br><span class="line"><span class="meta">$</span> mkcert -install</span><br><span class="line">Created a new local CA at "/Users/jasper/Library/Application Support/mkcert" 💥</span><br><span class="line">The local CA is now installed in the system trust store! ⚡️</span><br><span class="line">The local CA is now installed in the Firefox trust store (requires browser restart)! 🦊</span><br></pre></td></tr></table></figure>
-<h2 id="使用">使用</h2>
-<p>默认情况下，mkcert 生成的是 PEM 格式的证书</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkcert localhost 127.0.0.1 ::1</span><br><span class="line">Using the local CA at "/Users/jasper/Library/Application Support/mkcert" ✨</span><br><span class="line"></span><br><span class="line">Created a new certificate valid for the following names 📜</span><br><span class="line"> - "localhost"</span><br><span class="line"> - "127.0.0.1"</span><br><span class="line"> - "::1"</span><br><span class="line"></span><br><span class="line">The certificate is at "./localhost+1.pem" and the key at "./localhost+1-key.pem" ✅</span><br></pre></td></tr></table></figure>
-<p>如果希望生成 PKCS12 格式的证书（即.p12文件后缀的证书）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkcert -pkcs12 localhost 127.0.0.1 ::1</span><br><span class="line">mkcert -pkcs12 localhost 127.0.0.1 ::1</span><br><span class="line">Using the local CA at "/Users/jasper/Library/Application Support/mkcert" ✨</span><br><span class="line"></span><br><span class="line">Created a new certificate valid for the following names 📜</span><br><span class="line"> - "localhost"</span><br><span class="line"> - "127.0.0.1"</span><br><span class="line"> - "::1"</span><br><span class="line"></span><br><span class="line">The PKCS#12 bundle is at "./localhost+2.p12" ✅</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，PKCS12 格式证书的默认密码为 <code>changeit</code>，且目前没有参数以用于提供自定义密码（因为一些系统需要使用默认的<code>changeit</code>密码，因此作者决定进行保留，详情请参阅<a href="https://github.com/FiloSottile/mkcert/commit/6060e206a439bf6174cf9f2b2e77b1ba965cfe2f" target="_blank" rel="noopener">6060e206a439bf6174cf9f2b2e77b1ba965cfe2f</a>）</p>
-<p>其他格式或高级用法请参照</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-cert-file FILE, -key-file FILE, -p12-file FILE</span><br><span class="line">    Customize the output paths.</span><br><span class="line"></span><br><span class="line">-client</span><br><span class="line">    Generate a certificate for client authentication.</span><br><span class="line"></span><br><span class="line">-ecdsa</span><br><span class="line">    Generate a certificate with an ECDSA key.</span><br><span class="line"></span><br><span class="line">-pkcs12</span><br><span class="line">    Generate a ".p12" PKCS #12 file, also know as a ".pfx" file,</span><br><span class="line">    containing certificate and key for legacy applications.</span><br><span class="line"></span><br><span class="line">-csr CSR</span><br><span class="line">    Generate a certificate based on the supplied CSR. Conflicts with</span><br><span class="line">    all other flags and arguments except -install and -cert-file.</span><br></pre></td></tr></table></figure>
-<h2 id="参考">参考</h2>
-<p><a href="https://github.com/FiloSottile/mkcert" target="_blank" rel="noopener">mkcert github repository</a></p>
+        <p>通过本篇文章，你将能够禁用 GitLab（v11.3.0） Merge Request 页面上的 Resolve Conflicts 按钮。</p>
+<h2 id="整体思路">整体思路</h2>
+<p><img src="/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/GitLabMergeRequestConflictsPage.png" alt="MR 冲突页面">
+先观察 GitLab Merge Request 的页面中 <code>Resolve conflicts</code> 的左右元素，左侧有文本，右侧有按钮。<br>
+查看 GitLab CE <a href="https://gitlab.com/rluna-gitlab/gitlab-ce/-/tree/v11.3.0" target="_blank" rel="noopener">v11.3.0</a> 版本的源码发现，出现 <code>Resolve conflicts</code> 字样且符合元素排布展示的为页面 <code>app/assets/javascripts/vue_merge_request_widget/components/states/mr_widget_conflicts.vue</code>，如图所示：
+<img src="/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/GitLabMergeRequestPageSource.png" alt="GitLab Merge Request"></p>
+<blockquote>
+<p>GitLab 中主要有两种前端页面，一种是 haml 的模版页面，一种是 vue 的页面。<br>
+haml 的模版页面对于源文件的修改会直接作用到页面上，而 vue 的页面都是通过 webpack 打包为静态文件来使用的，所以对于源文件的修改没有任何意义。</p>
+</blockquote>
+<p>我们想要禁用掉这个按钮，除了修改源文件，通过 css 的覆盖则是另一种有效的方法，按钮上的 css class <code>js-resolve-conflicts-button</code> 是一个比较好的切入点。</p>
+<h2 id="解决方案">解决方案</h2>
+<h3 id="启动一个测试用的-gitlab">启动一个测试用的 GitLab</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">    --rm \</span><br><span class="line">    --name='gitlab-ce' -d \</span><br><span class="line">    --restart always \</span><br><span class="line">    -p 10022:22 \</span><br><span class="line">    -p 80:80 \</span><br><span class="line">    gitlab/gitlab-ce:11.3.0-ce.0</span><br></pre></td></tr></table></figure>
+<p>准备一个存在合并冲突的 Merge Request 备用，后续验证效果。</p>
+<h3 id="覆盖-css-隐藏-resolve-conflicts-按钮">覆盖 CSS，隐藏 Resolve Conflicts 按钮</h3>
+<p>执行命令 <code>docker exec -it gitlab-ce bash</code>，进入到容器中，找到如下 css 文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/gitlab/embedded/service/gitlab-rails/public/assets/application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css</span><br></pre></td></tr></table></figure>
+<p>在文件末尾追加需覆盖的 CSS</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.js-resolve-conflicts-button</span>&#123;<span class="attribute">display</span>:none&#125;</span><br></pre></td></tr></table></figure>
+<p>在 <code>/opt/gitlab/embedded/service/gitlab-rails/public/assets/</code> 路径下，执行如下命令生成新的压缩 css</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -c application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css &gt; application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css.gz</span><br></pre></td></tr></table></figure>
+<p>直接刷新 Merge Request 页面后，会发现其实没有变化，原因是客户端本地已经缓存了修改前的静态文件，就不会再找服务端取新的文件了。
+这时候客户端可以 Disable Cache，再刷新页面就可以看到期望结果了。但弊端也很明显，线上不可能要求所有人都这样配合来做。</p>
+<h3 id="强制刷新客户端缓存-使修改生效">强制刷新客户端缓存，使修改生效</h3>
+<p>要解决缓存的问题，只需要给这个 css 文件加一个版本即可，客户端就会取新的文件了。
+从源码中发现，静态文件的引入和 <code>.sprockets-manifest-a0472862966d175769c64db6472b5b23.json</code> 这个文件有关，作如下修改即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"application.css":"application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css"</span><br><span class="line"><span class="meta">#</span> 将上述内容修改为如下所示</span><br><span class="line">"application.css":"application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css?v=1234"</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/GitLabMergeRequestAfterModify.png" alt="修改生效后的 Merge Request 页面"></p>
+<h3 id="持久化修改">持久化修改</h3>
+<p>保存如上文件至本地，挂载到 GitLab 的容器中使用，对应的挂载路径如下所示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.sprockets-manifest-a0472862966d175769c64db6472b5b23.json -&gt; /opt/gitlab/embedded/service/gitlab-rails/public/assets/.sprockets-manifest-a0472862966d175769c64db6472b5b23.json</span><br><span class="line">application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css -&gt; /opt/gitlab/embedded/service/gitlab-rails/public/assets/application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css</span><br><span class="line">application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css.gz -&gt; /opt/gitlab/embedded/service/gitlab-rails/public/assets/application-e9df191d9f0417750d8d3e3d5c894a9e2166a68225e23d62b7fff88e7930bf43.css.gz</span><br></pre></td></tr></table></figure>
+<p>如果遇到权限问题，执行下 <code>docker exec -it gitlab-ce update-permissions</code> 就可以了。</p>
 
       
     </div>
@@ -443,7 +482,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yuezhuangshi.cn/2019/06/17/generate-localhost-cert-by-using-mkcert/" title="使用 mkcert 生成本地 localhost 的 https证书">http://yuezhuangshi.cn/2019/06/17/generate-localhost-cert-by-using-mkcert/</a>
+    <a href="http://yuezhuangshi.cn/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/" title="禁用 GitLab Merge Request 页面上的 Resolve Conflicts 按钮">http://yuezhuangshi.cn/2021/08/02/disable-resolve-conflicts-buttion-in-gitlab/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -458,9 +497,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/https/" rel="tag"># https</a>
-          
-            <a href="/tags/mkcert/" rel="tag"># mkcert</a>
+            <a href="/tags/gitlab/" rel="tag"># gitlab</a>
           
         </div>
       
@@ -488,8 +525,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/12/open-mysql-binlog-running-in-docker/" rel="next" title="为运行在 docker 中的 mysql 开启 binlog">
-                <i class="fa fa-chevron-left"></i> 为运行在 docker 中的 mysql 开启 binlog
+              <a href="/2019/06/17/summarized-how-to-replace-mirrors/" rel="next" title="镜像源替换汇总">
+                <i class="fa fa-chevron-left"></i> 镜像源替换汇总
               </a>
             
           </div>
@@ -497,10 +534,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/17/build-https-http2-service-by-using-springboot-undertow/" rel="prev" title="使用SpringBoot + Undertow 构建一个支持 https + http2 的服务">
-                使用SpringBoot + Undertow 构建一个支持 https + http2 的服务 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -663,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-mkcert"><span class="nav-number">1.</span> <span class="nav-text">安装 mkcert</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#整体思路"><span class="nav-number">1.</span> <span class="nav-text">整体思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动一个测试用的-gitlab"><span class="nav-number">2.1.</span> <span class="nav-text">启动一个测试用的 GitLab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#覆盖-css-隐藏-resolve-conflicts-按钮"><span class="nav-number">2.2.</span> <span class="nav-text">覆盖 CSS，隐藏 Resolve Conflicts 按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强制刷新客户端缓存-使修改生效"><span class="nav-number">2.3.</span> <span class="nav-text">强制刷新客户端缓存，使修改生效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久化修改"><span class="nav-number">2.4.</span> <span class="nav-text">持久化修改</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -872,7 +905,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1560752645000',
+            id: '1627889138000',
             owner: 'yuezhuangshi',
             repo: 'yuezhuangshi/blog',
             
